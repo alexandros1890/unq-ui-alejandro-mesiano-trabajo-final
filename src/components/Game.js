@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react';
 import '../App.css';
 
 function Game() {
-    
+    const [tablero,setTablero]=useState(0);
     const [dado1,setTdado1]=useState(0);
     const [dado2,setTdado2]=useState(0);
     const [dado3,setTdado3]=useState(0);
@@ -42,13 +42,20 @@ function Game() {
         };
 
     
+const fnTablero=()=>{
+  const uno = dado1Boolean ? dado1:0;
+  const dos = dado2Boolean ? dado2:0;
+  const tres = dado3Boolean ? dado3:0;
+  const cuatro = dado4Boolean ? dado4:0;
+  const cinco = dado5Boolean ? dado5:0;
 
+  const sumaTotal = uno + dos + tres + cuatro + cinco;
+  setTablero(sumaTotal);
+}
 
   
     function getNumero() {
     return Math.floor(Math.random() * (6 - 1)) + 1;
-
-
   }
 
   const tirar1=()=>{
@@ -81,17 +88,21 @@ function Game() {
 
 
   const cubilete =()=>{
+    
       tirar1()
       tirar2();
       tirar3();
       tirar4();
       tirar5();
+      fnTablero();
   }
 
 
     return (
       <div >
           <div>
+            <h1>GENERALA</h1>
+            <h2>puntos acumulados : {tablero}</h2>
               <p>
                 {dado1}<input id="d1" type="checkbox" value={dado1Boolean} onChange={booleanDado1} />
               {dado2}<input type="checkbox"  onChange={booleanDado2} />
@@ -100,6 +111,21 @@ function Game() {
               {dado5}<input type="checkbox" value={dado5Boolean} onChange={booleanDado5} />
               </p>
               <button onClick={cubilete}>tirar</button>
+              <div>
+                <h2>Uno</h2><input type="text"  onChange={booleanDado5} />
+                <h2>Dos</h2><input type="text"  onChange={booleanDado5} />
+                <h2>Tres</h2><input type="text"  onChange={booleanDado5} />
+                <h2>Cuatro</h2><input type="text"  onChange={booleanDado5} />
+                <h2>Cinco</h2><input type="text"  onChange={booleanDado5} />
+                <h2>Escalera</h2><input type="text"  onChange={booleanDado5} />
+                <h2>Par</h2><input type="CheckBox"  onChange={booleanDado5} />
+                <h2>Full</h2><input type="CheckBox" onChange={booleanDado5} />
+                <h2>Pocker</h2><input type="CheckBox"  onChange={booleanDado5} />
+                <h2>Generala</h2><input type="CheckBox" onChange={booleanDado5} />
+                <h2>Generala Doble</h2><input type="CheckBox"  onChange={booleanDado5} />
+                
+              </div>
+              
              
               
 
