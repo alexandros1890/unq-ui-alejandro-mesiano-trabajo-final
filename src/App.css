@@ -2,6 +2,31 @@
   float: center;
 }
 
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 20px;
+  width: 100%;
+  box-shadow: 6px 6px 6px #999;
+  cursor: pointer;
+  border-radius: 12px;
+  
+  
+}
+
+.button:hover{
+	background: #aae4c0;
+}
+
+.button:active{
+  background: #4b6154;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,4 +60,6 @@
   to {
     transform: rotate(360deg);
   }
+
+  
 }
